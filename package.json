@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/LEE-JAEHA/movie_javascript#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "mysql": "^2.16.0",
+    "pug": "^2.0.3"
   }
 }

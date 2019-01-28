@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        include ../component/head
+        title hello world
+    body
+        .container
+            form(action="/movie" mehtod="POST")
+                .form-group
+                    label(for="title") 영화 제목
+                    input.form-control(type="text" id = "title" placeholder = "Enter Movie Title" name= "title")
+                .form-group
+                    label(for="description") 영화 설명
+                    textarea.form-control(type="text" id = "description" placeholder = "Enter Movie Description" rows ="8" name="description")
+                .form-group
+                    select.from-control(name="category" placeholder ="category")
+                        option(value="action") action
+                        option(value="romantic") romantic
+                        option(value="comedy") comedy
+                .form-group
+                    label(for="thumbnail") 썸네일
+                    input.form-control(type="text" id="thumbnail" placeholder="Enter thumbnail url" name="thumbnail")
+                .form-group
+                    button.btn.btn-primary(type="submit") Add Movie
+
+
