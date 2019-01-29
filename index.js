@@ -24,14 +24,29 @@ app.set("views", "./views");
 // const admin = require('./routes/admin/index');
 // app.use(admin);
 
-
+//movie page 만들기
 app.get("/movie", (req,res)=>{
-    var sql = "SELECT * FROM movie";
-    db.query(sql, (error, results, fields)=> {
-        if (error) throw error;
-        res.render('movie/index', {results});
-    });
+    // var sql = "SELECT * FROM movie";
+    // db.query(sql, (error, results, fields)=> {
+    //     if (error) throw error;
+    //     res.render('movie/index', {results});
+    // });
+    res.render('movie/index');
 })
+app.post("/movie",(req,res)=>{
+    var {title, description, category, thumbnail} = req.body;
+    var sql = "INSERT INTO movie (title,description,category,thumbnail) VALUES (?,?,?,?)";
+    console.log("HI");
+    db.query(sql, [title, description, category, thumbnail], (error, results, fields) => {
+        if (error) throw error;
+        res.redirect("/movie");
+    })
+})
+
+
+const admin = require('./routes/admin/index')
+app.use(admin)
+
 
 
 app.listen(3000, () => {
