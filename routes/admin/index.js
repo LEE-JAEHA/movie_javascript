@@ -4,8 +4,7 @@ const db = require('../database/index');
 
 router.get("/admin", (req, res) => {
     var sql = "SELECT * FROM movie";
-    console.log(sql);
-    
+    console.log(sql);   
     //res.render('admin/index', {results});
     db.query(sql, (error, results, fields) => {
         //results는 결과값
