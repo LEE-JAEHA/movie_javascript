@@ -25,11 +25,16 @@ html
         .container
             .row
                 each result in results
-                    .card.col-lg-3.mb-3.mr-3       
+                    .card.col-lg-2.mb-3.mr-3       
                         img.card-img-top(src= result.thumbnail width="10px" height="300px")
                         .card-body.mb-3.mt-3
-                            h5.card-title= result.title
-                            p.card-text= result.description
+                            .div(style="height:100px;")
+                                h5.card-title= result.title
+                            .div(style="height:300px;")
+                                if result.description.length > 90
+                                    p.card-text= result.description.slice(0,90)+ "..."
+                                else
+                                    p.card-text= result.description
                             ul.list-group.list-group-flush 
                                 li.list-group-itemp= result.category
                             form.card-body(action="/admin",method="POST")
