@@ -25,8 +25,8 @@ html
         .container
             .row
                 each result in results
-                    .card.col-lg-3.mb-3.mr-3
-                        img.card-img-top(src= result.thumbnail)
+                    .card.col-lg-3.mb-3.mr-3       
+                        img.card-img-top(src= result.thumbnail width="10px" height="300px")
                         .card-body.mb-3.mt-3
                             h5.card-title= result.title
                             p.card-text= result.description
