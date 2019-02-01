@@ -14,8 +14,11 @@ router.route("/use_api")
         if(!search){
         }
         // search = "%" + search + "%";
-        var API = 'https://yts.am/api/v2/list_movies.json?sort_by=rating';
+        var API = 'https://yts.am/api/v2/list_movies.json';
+
+
         API = API + "?query_term=" + search;
+        console.log(API);
         var result = await axios.get(API)
         var movies = result.data.data.movies;
         res.render('use_api/index', { movies });
