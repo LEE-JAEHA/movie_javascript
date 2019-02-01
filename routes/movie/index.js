@@ -19,8 +19,14 @@ router.route("/movie")
     })
     .post((req,res)=>{
         var search = req.body.search;
-        search = "%" + search + "%";
-        var sql = "SELECT * FROM movie WHERE title LIKE ? OR description LIKE ?";
+        console.log(search);
+        if(!search){
+            var sql = "SELECT * FROM movie";
+        }
+        else{
+            search = "%" + search + "%";
+            var sql = "SELECT * FROM movie WHERE title LIKE ? OR description LIKE ?";
+        }
         //SELECT [칼럼명] FROM [테이블명] WHERE [칼럼명] LIKE '%특정문자열%
         db.query(sql, [search, search], (err, movies, fields) => {
             if(err){

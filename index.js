@@ -46,8 +46,10 @@ app.set("views", "./views");
 
 const admin = require('./routes/admin/index');
 const movie = require('./routes/movie/index');
+const use_api = require('./routes/use_api/index');
 app.use(admin);
 app.use(movie);
+app.use(use_api);
 
 
 
