@@ -5,20 +5,25 @@ html
         title hello world
     body
         .container
-            form(action="/movie" mehtod="POST")
-                .form-group
-                    label(for="title") 영화 제목
-                    input.form-control(type="text" id = "title" placeholder = "Enter Movie Title" name= "title")
-                .form-group
-                    label(for="description") 영화 설명
-                    textarea.form-control(type="text" id = "description" placeholder = "Enter Movie Description" rows ="8" name="description")
-                .form-group
-                    select.from-control(name="category" placeholder ="category")
-                        option(value="action") action
-                        option(value="romantic") romantic
-                        option(value="comedy") comedy
-                .form-group
-                    label(for="thumbnail") 썸네일
-                    input.form-control(type="text" id="thumbnail" placeholder="Enter thumbnail url" name="thumbnail")
-
+            form(action="/movie" method="POST")
+                .input-group.mb-3
+                    input(type="text" class="form-control" placeholder="영화 검색" name = "search")
+                    .input-group-append
+                        button.btn.btn-outline-secondary(type="button" id="button-addon2") 검색
+        .container
+            .row
+                each result in movies
+                    .card.col-lg-2.mb-3.mr-3       
+                        img.card-img-top(src= result.thumbnail width="10px" height="300px")
+                        .card-body.mb-3.mt-3
+                            .div(style="height:100px;")
+                                h5.card-title= result.title
+                            .div(style="height:300px;")
+                                if result.description.length > 90
+                                    p.card-text= result.description.slice(0,90)+ "..."
+                                else
+                                    p.card-text= result.description
+                            ul.list-group.list-group-flush
+                                li.list-group-itemp= result.category
+                            
 
